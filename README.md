@@ -17,7 +17,7 @@ For each of these tasks, you should create an [Issue](https://docs.github.com/en
 
 ### Portfolio Tasks
 - [x] Add a photo of yourself to the website
-- [x] Add an "About youself" section to the website.
+- [x] Add an "About yourself" section to the website.
 - [x] Add your previous work experiences
 - [x] Add your hobbies (including images)
 - [x] Add your current/previous education
@@ -40,7 +40,7 @@ Make sure you have python3 and pip installed
 
 Create and activate virtual environment using virtualenv
 ```bash
-$ python -m venv python3-virtualenv
+$ python3 -m venv python3-virtualenv
 $ source python3-virtualenv/bin/activate
 ```
 
@@ -68,9 +68,9 @@ You should get a response like this in the terminal:
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
+You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser!
 
-*Note: The portfolio site will only work on your local machine while you have it running inside of your terminal. We'll go through how to host it in the cloud in the next few weeks!* 
+*Note: The portfolio site will only work on your local machine while you have it running inside of your terminal. We'll go through how to host it in the cloud in the next few weeks!*
 
 ## Contributing
 
