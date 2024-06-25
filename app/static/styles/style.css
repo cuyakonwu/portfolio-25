@@ -29,6 +29,10 @@ body {
     padding-top: 30px;
 }
 
+#xp-body {
+    padding-top: 30px;
+}
+
 .fun-facts, .call-to-action {
     padding: 30px 100px;
 }
@@ -42,6 +46,14 @@ body {
     font-size: 48px;
     font-weight: 900;
     color: #F9FAF8;
+}
+
+.xp-headers{
+    color: #F9FAF8;
+}
+
+ul {
+    list-style-type: none;
 }
 
 #header-logo {

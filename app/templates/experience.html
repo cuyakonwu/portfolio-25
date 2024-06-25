@@ -43,40 +43,30 @@
           </div>
         </div>
       </nav>
-      <div class="hero-main">
+      <div id="xp-body" class="hero-main">
         <div class="hero-text">
-            <h1>{{ title }}</h1>
-            <h2>Work Experience</h2>
+            <h2 class="xp-headers">Work Experience</h2>
             <ul>
                 {% for experience in work_experiences %}
                 <li>
-                    <h3>{{ experience.title }} at {{ experience.company }}</h3>
+                    <h3 class="xp-headers"><em>{{ experience.title }}</em> at {{ experience.company }}</h3>
                     <p>{{ experience.description }}</p>
                     <p><strong>Duration:</strong> {{ experience.duration }}</p>
                 </li>
                 {% endfor %}
             </ul>
 
-            <h2>Education</h2>
+            <h2 class="xp-headers">Education</h2>
             <ul>
                 {% for edu in education %}
                 <li>
-                    <h3>{{ edu.degree }} from {{ edu.institution }}</h3>
+                    <h3 class="xp-headers">{{ edu.degree }} from {{ edu.institution }}</h3>
                     <p>{{ edu.description }}</p>
                     <p><strong>Year:</strong> {{ edu.year }}</p>
                 </li>
                 {% endfor %}
             </ul>
-
-            <h2>Hobbies</h2>
-            <ul>
-                {% for hobby in hobbies %}
-                <li>{{ hobby }}</li>
-                {% endfor %}
-            </ul>
         </div>
-    </div>
-    <div class="fun-facts">
       </div>
       <div class="footer">
         Conrad Uyakonwu 2024
