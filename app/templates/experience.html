@@ -31,13 +31,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/experience">Experience</a>
+                <a class="nav-link active" aria-current="page" href="/experience">Experience</a>
               </li>
             </ul>
           </div>
@@ -45,6 +45,35 @@
       </nav>
       <div class="hero-main">
         <div class="hero-text">
+            <h1>{{ title }}</h1>
+            <h2>Work Experience</h2>
+            <ul>
+                {% for experience in work_experiences %}
+                <li>
+                    <h3>{{ experience.title }} at {{ experience.company }}</h3>
+                    <p>{{ experience.description }}</p>
+                    <p><strong>Duration:</strong> {{ experience.duration }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <h2>Education</h2>
+            <ul>
+                {% for edu in education %}
+                <li>
+                    <h3>{{ edu.degree }} from {{ edu.institution }}</h3>
+                    <p>{{ edu.description }}</p>
+                    <p><strong>Year:</strong> {{ edu.year }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <h2>Hobbies</h2>
+            <ul>
+                {% for hobby in hobbies %}
+                <li>{{ hobby }}</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
     <div class="fun-facts">
