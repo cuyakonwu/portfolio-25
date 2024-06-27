@@ -112,3 +112,27 @@ ul {
     text-decoration: none;
     color: white;
 }
+
+.hobbies {
+    margin: 20px 0;
+}
+
+.hobbies-list .hobby {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hobby-image {
+    margin-left: 20px;
+}
+
+.hobby-image img {
+    max-width: 150px;
+    border-radius: 8px;
+}
+
+#nigeria {
+    height : 300px;
+    width : auto
+}
