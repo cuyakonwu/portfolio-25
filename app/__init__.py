@@ -85,9 +85,6 @@ def experience():
 @app.route('/about')
 def about():
     hobbies = [
-        "I a grew up in Nigeria, and have lived in Maryland for the last 10 years",
-        "I am a Questbridge Scholar, NSBE member, Colorstack member and \
-        CodePath Fellow",
-        "I have the state record deadlift in the state of Illinois"
+        ""
     ]
     return render_template('about.html', hobbies=hobbies)
