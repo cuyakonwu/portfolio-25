@@ -45,6 +45,8 @@
       </nav>
       <div id="about-body" class="hero-main">
         <div class="hero-text">
+
+        <h1 id="awesome">About Me</h1>
           <p>As a first-generation low-income immigrant from Nigeria, my journey
             to The University of Chicago as a Questbridge Scholar in Computer
             Science has been marked by resilience and determination. Transitioning
@@ -61,13 +63,28 @@
         </div>
     </div>
     <div class="fun-facts">
-      <h2>Hobbies</h2>
-            <ul>
-                {% for hobby in hobbies %}
-                <li>{{ hobby }}</li>
-                {% endfor %}
-            </ul>
+      <div class="hobbies">
+        <h2>Hobbies</h2>
+        <div class="hobbies-list">
+            {% for hobby in hobbies %}
+            <div class="hobby d-flex align-items-center mb-3">
+                <div class="hobby-description">
+                    <p>{{ hobby.description }}</p>
+                </div>
+                {% if hobby.img %}
+                <div class="hobby-image ms-3">
+                    <img src="{{ hobby.img }}" alt="Hobby Image" class="img-fluid">
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
       </div>
+      <div class="visited">
+        <p>I've also visited Nigeria</p>
+        <img id="nigeria" src="/static/img/nigeria_map.jpeg">
+      </div>
+    </div>
       <div class="footer">
         Conrad Uyakonwu 2024
     </div>

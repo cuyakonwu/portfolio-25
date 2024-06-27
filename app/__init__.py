@@ -85,6 +85,28 @@ def experience():
 @app.route('/about')
 def about():
     hobbies = [
+<<<<<<< HEAD
         ""
+=======
+       {
+        "description" : "I have been powerlifting since 2022 and had my first competition in April \
+        2024. I am currently in contention for a state record for my 300kg deadlift.",
+
+       "img" : "/static/img/meet.jpg",
+       },
+
+       {
+        "description" : "I enjoy playing video games, most notably platform or 2D fighting games, \
+        I've always enjoyed learning combos and picking up tendencies to adapt.",
+
+        "img" : "/static/img/game.jpeg",
+       },
+       {
+        "description" : "I am also an avid music enjoyer, I listen to R&B, different variations of Pop,\
+        and more recently Samba.",
+
+        "img" : "/static/img/spotify.png",
+       }
+>>>>>>> hobbies
     ]
     return render_template('about.html', hobbies=hobbies)
