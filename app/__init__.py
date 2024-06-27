@@ -76,7 +76,7 @@ def experience():
         {
             "degree": "IB Career Program in Computer Science",
             "institution": "Watkins Mill High School",
-            "description": "GPA: 3.93",
+            "description": "Unweighted GPA: 3.93",
             "year": "2018 - 2022"
         }
     ]
