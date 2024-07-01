@@ -1,1 +1,0 @@
-echo url="https://www.duckdns.org/update?domains=cuyakonwu&token=c5286ba4-bee2-4dc6-a5fe-ef7bbacbdeb9&ip=" | curl -k -o /Users/conraduyakonwu/duckdns/duck.log -K -
