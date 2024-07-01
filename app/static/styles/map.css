@@ -1,0 +1,28 @@
+/* Ensure html and body take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Flexbox container to make the page layout fill the viewport */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should take up the remaining space */
+.hero-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+}
+
+/* Map container to ensure proper height and width */
+#map {
+  height: 500px;
+  width: 100%;
+  margin: 10px 40px;
+}

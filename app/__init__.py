@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', title="Conrad's Portfolio", url=os.getenv("URL"))
+    return render_template('index.html', title="Conrad's Portfolio", url=os.getenv("URL"),  active_page='home')
 
 @app.route('/experience')
 def experience():
@@ -80,33 +80,37 @@ def experience():
             "year": "2018 - 2022"
         }
     ]
-    return render_template('experience.html', title=title, work_experiences=work_experiences, education=education,)
+    return render_template('experience.html', title=title, work_experiences=work_experiences, education=education, active_page='experience')
 
 @app.route('/about')
 def about():
+    return render_template('about.html', active_page='about')
+
+@app.route('/hobbies')
+def hobbies():
     hobbies = [
-<<<<<<< HEAD
-        ""
-=======
-       {
-        "description" : "I have been powerlifting since 2022 and had my first competition in April \
-        2024. I am currently in contention for a state record for my 300kg deadlift.",
+        {
+            "description" : "I have been powerlifting since 2022 and had my first competition in April \
+            2024. I am currently in contention for a state record for my 300kg deadlift.",
 
-       "img" : "/static/img/meet.jpg",
-       },
+        "img" : "/static/img/meet.jpg",
+        },
 
-       {
-        "description" : "I enjoy playing video games, most notably platform or 2D fighting games, \
-        I've always enjoyed learning combos and picking up tendencies to adapt.",
+        {
+            "description" : "I enjoy playing video games, most notably platform or 2D fighting games, \
+            I've always enjoyed learning combos and picking up tendencies to adapt.",
 
-        "img" : "/static/img/game.jpeg",
-       },
-       {
-        "description" : "I am also an avid music enjoyer, I listen to R&B, different variations of Pop,\
-        and more recently Samba.",
+            "img" : "/static/img/game.jpeg",
+        },
+        {
+            "description" : "I am also an avid music enjoyer, I listen to R&B, different variations of Pop,\
+            and more recently Samba.",
 
-        "img" : "/static/img/spotify.png",
-       }
->>>>>>> hobbies
-    ]
-    return render_template('about.html', hobbies=hobbies)
+            "img" : "/static/img/spotify.png",
+        }
+        ]
+    return render_template('hobbies.html', hobbies=hobbies, active_page='hobbies')
+
+@app.route('/map')
+def map():
+    return render_template('map.html', active_page='map')

@@ -1,45 +1,55 @@
+/* CSS Reset */
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    margin: 0;
 }
 
-.header, .hero-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 100px;
+.navbar {
+    width: 100%;
 }
 
 .hero-main {
-    flex-wrap: wrap;
-    padding-bottom: 60px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
 }
 
 #headshot {
     max-height: 625px;
     height: auto;
     width: auto;
-    flex: 0;
     padding-top: 30px;
 }
 
-#xp-body, #about-body {
-    padding-top: 30px;
+ul {
+    list-style-type: none;
 }
 
-.fun-facts, .call-to-action {
-    padding: 30px 100px;
+.header, .footer, .hero-main {
+    background-color: #2f4630;
+    padding: 30px;
 }
 
-.call-to-action {
-    display: flex;
-    align-items: center;
+.header a, .hero-main p {
+    font-size: 18px;
+    color: #E5E7EB;
 }
 
 #awesome {
@@ -48,26 +58,8 @@ body {
     color: #F9FAF8;
 }
 
-.xp-headers{
+.xp-headers {
     color: #F9FAF8;
-}
-
-ul {
-    list-style-type: none;
-}
-
-#header-logo {
-    font-size: 24px;
-    color: #F9FAF8;
-}
-
-.header a, .hero-main p {
-    font-size: 18px;
-    color: #E5E7EB;
-}
-
-#info-head {
-    align-self: center;
 }
 
 .fun-facts {
@@ -80,12 +72,7 @@ ul {
 .footer {
     text-align: center;
     color: #F9FAF8;
-    padding: 30px 0px;
-    justify-content: flex-end;
-}
-
-.header, .footer, .hero-main {
-    background-color: #2f4630;
+    padding: 30px 0;
 }
 
 .link-name {
@@ -97,7 +84,7 @@ ul {
     width: 25px;
     height: auto;
     margin: 0px 5px;
-  }
+}
 
 #images {
     display: flex;
@@ -111,10 +98,6 @@ ul {
 #resume-link {
     text-decoration: none;
     color: white;
-}
-
-.hobbies {
-    margin: 20px 0;
 }
 
 .hobbies-list .hobby {
@@ -133,6 +116,10 @@ ul {
 }
 
 #nigeria {
-    height : 300px;
-    width : auto
+    height: 300px;
+    width: auto;
+}
+
+.hobby-description {
+    font-weight: 300;
 }

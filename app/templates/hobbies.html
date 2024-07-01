@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Conrad's Hobbies{% endblock %}
+{% block content %}
+<div class="hero-main">
+    <div class="hero-text">
+        <h1 id="awesome">Hobbies</h1>
+        <div class="hobbies">
+            <div class="hobbies-list">
+                {% for hobby in hobbies %}
+                <div class="hobby d-flex align-items-center mb-3">
+                    <div class="hobby-description">
+                        <p>{{ hobby.description }}</p>
+                    </div>
+                    {% if hobby.img %}
+                    <div class="hobby-image ms-3">
+                        <img src="{{ hobby.img }}" alt="Hobby Image" class="img-fluid">
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

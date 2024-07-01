@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Where I've Been{% endblock %}
+{% block content %}
+<div class="hero-main">
+    <div id="map"></div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var map = L.map('map').setView([39.179179, -77.267189], 3); // Set initial view to a central location with a zoom level of 3 for better coverage
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var locations = [
+            {coords: [39.179179, -77.267189], popup: "Maryland"},
+            {coords: [37.7749, -122.4194], popup: "San Francisco"},
+            {coords: [34.0522, -118.2437], popup: "Los Angeles"},
+            {coords: [40.7128, -74.0060], popup: "New York"},
+            {coords: [27.9944024, -81.7602544], popup: "Florida"},
+            {coords: [51.5074, -0.1278], popup: "England"},
+            {coords: [25.2048, 55.2708], popup: "Dubai"},
+            {coords: [42.3601, -71.0589], popup: "Boston"},
+            {coords: [6.569118, 3.348083], popup: "Lagos, Nigeria"},
+            {coords: [41.8781, -87.6298], popup: "Chicago"}
+        ];
+
+        locations.forEach(function(location) {
+            var marker = L.marker(location.coords).addTo(map);
+            marker.bindPopup(location.popup);
+        });
+
+        function onMapClick(e) {
+            var popup = L.popup()
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+        }
+
+        map.on('click', onMapClick);
+    });
+</script>
+{% endblock %}
