@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
-from datetime import *
+from datetime import datetime
 
 load_dotenv()
 
