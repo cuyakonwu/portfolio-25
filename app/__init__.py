@@ -8,30 +8,11 @@ load_dotenv(dotenv_path='example.env')
 
 app = Flask(__name__)
 
-db_name = os.getenv("MYSQL_DATABASE")
-db_user = os.getenv("MYSQL_USER")
-db_password = os.getenv("MYSQL_PASSWORD")
-db_host = os.getenv("MYSQL_HOST")
-
-missing_vars = []
-if not db_name:
-    missing_vars.append("MYSQL_DATABASE")
-if not db_user:
-    missing_vars.append("MYSQL_USER")
-if not db_password:
-    missing_vars.append("MYSQL_PASSWORD")
-if not db_host:
-    missing_vars.append("MYSQL_HOST")
-
-if missing_vars:
-    raise ValueError(f"Missing required environment variables for database connection: {', '.join(missing_vars)}")
-
-
 mydb = MySQLDatabase(
-    db_name,
-    user=db_user,
-    password=db_password,
-    host=db_host,
+    os.getenv("MYSQL_DATABASE"),
+    user=os.getenv("MYSQL_USER"),
+    password=os.getenv("MYSQL_PASSWORD"),
+    host=os.getenv("MYSQL_HOST"),
     port=3306
 )
 
