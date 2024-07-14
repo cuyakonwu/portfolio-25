@@ -10,6 +10,25 @@ app = Flask(__name__)
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
 
+mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+    user=os.getenv("MYSQL_USER"),
+    password=os.getenv("MYSQL_PASSWORD"),
+    host=os.getenv("MYSQL_HOST"),
+    port=3306
+)
+
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.now)
+
+    class Meta:
+        database = mydb
+
+mydb.connect()
+mydb.create_tables([TimelinePost])
+
 @app.route('/')
 def index():
     return render_template('index.html', title="Conrad's Portfolio", url=os.getenv("URL"),  active_page='home')
