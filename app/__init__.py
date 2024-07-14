@@ -4,16 +4,34 @@ from dotenv import load_dotenv
 from peewee import *
 from datetime import datetime
 
-load_dotenv()
+load_dotenv(dotenv_path='example.env')
 
 app = Flask(__name__)
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
 
-mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-    user=os.getenv("MYSQL_USER"),
-    password=os.getenv("MYSQL_PASSWORD"),
-    host=os.getenv("MYSQL_HOST"),
+db_name = os.getenv("MYSQL_DATABASE")
+db_user = os.getenv("MYSQL_USER")
+db_password = os.getenv("MYSQL_PASSWORD")
+db_host = os.getenv("MYSQL_HOST")
+
+missing_vars = []
+if not db_name:
+    missing_vars.append("MYSQL_DATABASE")
+if not db_user:
+    missing_vars.append("MYSQL_USER")
+if not db_password:
+    missing_vars.append("MYSQL_PASSWORD")
+if not db_host:
+    missing_vars.append("MYSQL_HOST")
+
+if missing_vars:
+    raise ValueError(f"Missing required environment variables for database connection: {', '.join(missing_vars)}")
+
+
+mydb = MySQLDatabase(
+    db_name,
+    user=db_user,
+    password=db_password,
+    host=db_host,
     port=3306
 )
 
@@ -155,3 +173,6 @@ def get_time_line_post():
             for p in TimelinePost.select().order_by(TimelinePost.createdd_at.desc())
         ]
     }
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
