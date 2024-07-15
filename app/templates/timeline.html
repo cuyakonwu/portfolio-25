@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Conrad Uyakonwu's Portfolio - Timeline{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Timeline</h1>
+    <form id="timeline-form" class="mb-4">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div id="timeline-posts"></div>
+</div>
+
+<script>
+    function displayTimelinePosts(posts) {
+        const timelinePostsDiv = document.getElementById('timeline-posts');
+        timelinePostsDiv.innerHTML = '';
+        posts.forEach(post => {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'card mb-3';
+            postDiv.innerHTML = `
+                <div class="card-body">
+                    <h5 class="card-title">${post.name}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${post.email}</h6>
+                    <p class="card-text">${post.content}</p>
+                    <p class="card-text"><small class="text-muted">Posted on ${new Date(post.created_at).toLocaleString()}</small></p>
+                </div>
+            `;
+            timelinePostsDiv.appendChild(postDiv);
+        });
+    }
+
+    async function fetchTimelinePosts() {
+        const response = await fetch('/api/timeline_post');
+        const data = await response.json();
+        displayTimelinePosts(data.timeline_posts);
+    }
+
+    document.getElementById('timeline-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const response = await fetch('/api/timeline_post', {
+            method: 'POST',
+            body: formData
+        });
+        if (response.ok) {
+            fetchTimelinePosts(); // Refresh the timeline posts
+            event.target.reset(); // Clear the form
+        } else {
+            console.error('Failed to submit the form');
+        }
+    });
+
+    // Fetch and display timeline posts when the page loads
+    fetchTimelinePosts();
+</script>
+{% endblock %}

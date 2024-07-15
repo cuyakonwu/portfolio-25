@@ -3,6 +3,8 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
 from datetime import datetime
+from playhouse.shortcuts import model_to_dict
+
 
 load_dotenv(dotenv_path='example.env')
 
@@ -151,9 +153,18 @@ def get_time_line_post():
     return {
         'timeline_posts': [
             model_to_dict(p)
-            for p in TimelinePost.select().order_by(TimelinePost.createdd_at.desc())
+            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
+
+@app.route('/api/timeline_post/<int:id>', methods=['DELETE'])
+def delete_time_line_post(id):
+    query = TimelinePost.delete().where(TimelinePost.id == id)
+    deleted_count = query.execute()
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
