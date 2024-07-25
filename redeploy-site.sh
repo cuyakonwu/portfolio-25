@@ -1,35 +1,29 @@
-kill_previous_service() {
-    systemctl stop myportfolio || { printf "Failed to stop myportfolio service.\n" >&2; return 1; }
-}
+#!/bin/bash
+
+PROJECT_DIR="/root/MLH-Portfolio"
+DOCKER_COMPOSE_FILE="docker-compose.prod.yml"
 
 navigate_to_project_directory() {
-    cd /root/MLH-Portfolio || { printf "Project directory /root/MLH-Portfolio not found.\n" >&2; return 1; }
+    cd "$PROJECT_DIR" || { printf "Project directory %s not found.\n" "$PROJECT_DIR" >&2; return 1; }
 }
 
 update_git_repository() {
     git fetch && git reset origin/main --hard || { printf "Git fetch or reset failed.\n" >&2; return 1; }
 }
 
-activate_virtualenv() {
-    source python3-virtualenv/bin/activate || { printf "Virtual environment activation failed.\n" >&2; return 1; }
+docker_compose_down() {
+    docker compose -f "$DOCKER_COMPOSE_FILE" down || { printf "Failed to bring down Docker containers.\n" >&2; return 1; }
 }
 
-install_dependencies() {
-    pip install -r requirements.txt || { printf "Pip install failed.\n" >&2; return 1; }
-}
-
-restart_service() {
-    systemctl daemon-reload || { printf "Failed to reload systemd manager configuration.\n" >&2; return 1; }
-    systemctl restart myportfolio || { printf "Failed to restart myportfolio service.\n" >&2; return 1; }
+docker_compose_up() {
+    docker compose -f "$DOCKER_COMPOSE_FILE" up -d --build || { printf "Failed to bring up Docker containers.\n" >&2; return 1; }
 }
 
 main() {
-    kill_previous_service || exit 1
     navigate_to_project_directory || exit 1
     update_git_repository || exit 1
-    activate_virtualenv || exit 1
-    install_dependencies || exit 1
-    restart_service || exit 1
+    docker_compose_down || exit 1
+    docker_compose_up || exit 1
     printf "Deployment script executed successfully.\n"
 }
 
