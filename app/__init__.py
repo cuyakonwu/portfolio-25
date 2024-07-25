@@ -61,13 +61,11 @@ def experience():
             applicants (99th percentile) to work with Meta, I completed a 12-week \
             Site Reliability Engineering (SRE) curriculum supplemented with events \
             and workshops led by Meta engineers. During this program, I developed \
-            an open-source web app using Python Flask, MySQL, and unittest, achieving \
+            an open-source web app using Python Flask, MySQL, and unit test, achieving \
             95% test coverage. I implemented automated CI/CD pipelines using Docker, \
             cutting manual deployment time by 80% through script automation and \
             containerization, while also using Nginx to handle over 10,000 requests \
-            per minute with 40% faster response times. Additionally, I initiated \
-            monitoring and alerting systems with Prometheus and Grafana, creating \
-            over 20 custom dashboards and reducing incident response time by 50%.",
+            per minute with 40% faster response times.",
 
             "duration": "June 2024 - September 2024"
         },
