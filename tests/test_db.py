@@ -24,15 +24,15 @@ class TestTimelinePost(unittest.TestCase):
         assert second_post.id==2
 
         all_posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
-        
+
         assert len(all_posts) == 2
 
-        assert all_posts[0].name == 'John Doe'
-        assert all_posts[0].email == 'john@example.com'
-        assert all_posts[0].content == 'Hello World, I\'m John!'
+        assert all_posts[1].name == 'John Doe'
+        assert all_posts[1].email == 'john@example.com'
+        assert all_posts[1].content == 'Hello World, I\'m John!'
 
-        assert all_posts[1].name == 'Jane Doe'
-        assert all_posts[1].email == 'jane@example.com'
-        assert all_posts[1].content == 'Hello World, I\'m Jane!'
+        assert all_posts[0].name == 'Jane Doe'
+        assert all_posts[0].email == 'jane@example.com'
+        assert all_posts[0].content == 'Hello World, I\'m Jane!'
 
 
