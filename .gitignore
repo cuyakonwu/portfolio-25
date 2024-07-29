@@ -1,7 +1,6 @@
 .venv
 __pycache__
 *.pyc
-example.env
 python3-virtualenv
 flask.sqlite
 .DS_Store
