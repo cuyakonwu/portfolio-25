@@ -26,7 +26,7 @@ class AppTestCase(unittest.TestCase):
         assert '<a href="https://github.com/cuyakonwu"><img class="landing-pics" src="/static/img/github-logo.png" alt="github logo">' in html
         assert '<a href="https://www.linkedin.com/in/conrad-uyakonwu/"><img src="/static/img/linkedin-logo.png" class="landing-pics" alt="linkedin logo"></a>' in html
         assert '<a href="mailto:conraduyakonwu@gmail.com"><img class="landing-pics" src="/static/img/envelope.png" alt="email"></a>' in html
-        assert '<a href="https://docs.google.com/document/d/12RKPHgFBtbc_EJfbsAZnumF4mtCi9s_tJLgaHcByKeo/edit?usp=sharing" id="resume-link"><img class="landing-pics" src="/static/img/text-file.png" alt="Resume"></a>' in html
+        assert '<a href="https://docs.google.com/document/d/1D1xJ0MXw-0z4y0GzIXNdV04OOrKifBNIKJgo4cbvKoI/edit?usp=sharing" id="resume-link"><img class="landing-pics" src="/static/img/text-file.png" alt="Resume"></a>' in html
 
     def test_timeline_post(self):
         response = self.client.get("/api/timeline_post")
@@ -34,7 +34,7 @@ class AppTestCase(unittest.TestCase):
         assert response.is_json
         json = response.get_json()
         assert "timeline_posts" in json
-        assert len(json["timeline_posts"]) == 0
+        assert len(json["timeline_posts"]) == 1
 
         demo_post_data={
             "name":"Jane Doe",
@@ -60,7 +60,7 @@ class AppTestCase(unittest.TestCase):
         assert json_get_response['timeline_posts'][0]['email'] == demo_post_data['email']
         assert json_get_response['timeline_posts'][0]['content'] == demo_post_data['content']
 
-    def test_timeline(self):    
+    def test_timeline(self):
         #testing timeline page
         response = self.client.get("/timeline")
         assert response.status_code==200
