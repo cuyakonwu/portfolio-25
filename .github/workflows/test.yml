@@ -10,9 +10,17 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Run Tests
-    env:
-      TESTING: true
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+        ports:
+          - 5000:5000
+        volumes:
+          - .:/app
+        env:
+          MYSQL_ROOT_PASSWORD: example
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -21,6 +29,14 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.12.4'
+
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install docker-compose -y
+
+      - name: Start Services
+        run: docker-compose up -d
 
       - name: Setup Python Virtual Environment
         run: python3 -m venv python3-virtualenv
