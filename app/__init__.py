@@ -9,7 +9,7 @@ load_dotenv(dotenv_path='example.env')
 
 app = Flask(__name__)
 
-if os.getenv("TESTING") == "true":
+"""if os.getenv("TESTING") == "true":
     print("Running in test mode")
     mydb= SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
 else:
@@ -19,10 +19,9 @@ else:
     password=os.getenv("MYSQL_PASSWORD"),
     host=os.getenv("MYSQL_HOST"),
     port=3306
-    )
+    )"""
 
-
-
+mydb = SqliteDatabase('mydatabase.db')
 
 class TimelinePost(Model):
     name = CharField()
@@ -148,17 +147,17 @@ def post_time_line_post():
     name = request.form.get('name')
     email = request.form.get('email')
     content = request.form.get('content')
-    
+
     if not name:
         return render_template('error.html', error_code=400, error_reason="Invalid name"), 400
-        
+
     if not email or '@' not in email:
         return render_template('error.html', error_code=400, error_reason="Invalid email address"), 400
-                
+
     if not content:
         return render_template('error.html', error_code=400, error_reason="Invalid content"), 400
-        
-    timeline_post = TimelinePost.create(name=name, email=email, content=content) 
+
+    timeline_post = TimelinePost.create(name=name, email=email, content=content)
     return model_to_dict(timeline_post)
 
 @app.route('/api/timeline_post', methods=['GET'])
