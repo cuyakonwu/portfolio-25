@@ -30,9 +30,3 @@ jobs:
 
       - name: Print project root directory
         run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && pwd'
-
-      - name: Debug SSH Key and Connection
-        run: ssh -v -i ~/.ssh/deploy-key.pem $SSH_USER@$SSH_IP 'echo SSH connection established'
-
-      - name: Output SSH Key Content
-        run: cat ~/.ssh/deploy-key.pem
