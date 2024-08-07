@@ -28,10 +28,5 @@ jobs:
       - name: Install Dependencies
         run: python3-virtualenv/bin/pip install -r requirements.txt
 
-      - name: Start Flask Server
-        run: |
-          python3-virtualenv/bin/python app.py &
-          sleep 5  # Wait for the server to start
-
       - name: Run Tests
         run: ./run_test.sh
