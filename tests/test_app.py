@@ -1,5 +1,6 @@
 import unittest
 import os
+from app import TimelinePost
 os.environ["TESTING"] = 'true'
 
 from app import app
