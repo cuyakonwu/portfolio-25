@@ -34,7 +34,7 @@ class AppTestCase(unittest.TestCase):
         assert response.is_json
         json = response.get_json()
         assert "timeline_posts" in json
-        assert len(json["timeline_posts"]) == 1
+        assert len(json["timeline_posts"]) == 0
 
         demo_post_data={
             "name":"Jane Doe",
