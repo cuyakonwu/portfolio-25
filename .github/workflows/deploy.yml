@@ -25,4 +25,4 @@ jobs:
           END
 
       - name: Deploy site
-        run: ssh my-vps '~/redeploy-site.sh'
+        run: ssh my-vps 'cd ~/MLH-Portfolio && ~/redeploy-site.sh'
