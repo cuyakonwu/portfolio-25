@@ -7,6 +7,7 @@ from app import app
 class AppTestCase(unittest.TestCase):
     def setUp(self):
         self.client=app.test_client()
+        TimelinePost.delete().execute()
 
     def test_home(self):
         response = self.client.get("/")
