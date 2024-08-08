@@ -26,6 +26,3 @@ jobs:
 
       - name: Deploy site
         run: ssh my-vps 'cd ~/MLH-Portfolio && ./redeploy-site.sh'
-
-      - name: List files
-        run: ssh my-vps 'ls -la ~/MLH-Portfolio'
