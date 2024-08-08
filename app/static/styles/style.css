@@ -182,6 +182,8 @@ ul {
     font-size: 18px;
     margin: 0;
     padding: 10px;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
 }
 
 .project-square[data-background="ChiGame"]::before {
