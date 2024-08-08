@@ -138,9 +138,9 @@ def hobbies():
         ]
     return render_template('hobbies.html', hobbies=hobbies, active_page='hobbies')
 
-@app.route('/map')
+"""@app.route('/map')
 def map():
-    return render_template('map.html', active_page='map')
+    return render_template('map.html', active_page='map')"""
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
