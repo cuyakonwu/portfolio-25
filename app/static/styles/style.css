@@ -182,6 +182,9 @@ ul {
     font-size: 18px;
     margin: 0;
     padding: 10px;
+}
+
+.project-title {
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
 }
