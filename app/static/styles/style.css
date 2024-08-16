@@ -185,7 +185,7 @@ ul {
 }
 
 .project-title {
-    font-size: x-large;
+    font-size: 40px;
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 1.5px black;
 }
