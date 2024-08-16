@@ -187,7 +187,7 @@ ul {
 .project-title {
     font-size: 60px;
     -webkit-text-fill-color: white;
-    -webkit-text-stroke: 2px black;
+    -webkit-text-stroke: 3px black;
 }
 
 .project-square[data-background="ChiGame"]::before {
