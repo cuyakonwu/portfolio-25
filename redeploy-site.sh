@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT_DIR="/root/MLH-Portfolio"
+PROJECT_DIR="/home/opc/MLH-Portfolio"
 DOCKER_COMPOSE_FILE="docker-compose.prod.yml"
 
 navigate_to_project_directory() {
