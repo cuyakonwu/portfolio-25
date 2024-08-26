@@ -6,7 +6,7 @@ services:
     env_file:
       - example.env
     ports:
-      - "5000:5000"  # Expose port 5000 to the host machine
+      - "5000:5000"
     depends_on:
       - mysql
 
