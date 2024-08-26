@@ -1,6 +1,6 @@
 services:
   myportfolio:
-    container_name: myporfolio
+    container_name: myportfolio
     build: .
     restart: always
     env_file:
