@@ -24,7 +24,7 @@ main() {
     update_git_repository || exit 1
     docker_compose_down || exit 1
     docker_compose_up || exit 1
-    printf "Deployment script executed successfully.\n"
+    printf "Deployment script has been executed successfully.\n"
 }
 
 main "$@"
